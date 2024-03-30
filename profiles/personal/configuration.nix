@@ -28,6 +28,7 @@
       efi.canTouchEfiVariables = if (systemSettings.bootMode == "uefi") then true else false;
       grub = {
         enable = true;
+        configurationLimit = 6;
         device = systemSettings.grubDevice;
         efiSupport = if (systemSettings.bootMode == "uefi") then true else false;
         useOSProber = true;
