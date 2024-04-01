@@ -11,6 +11,7 @@
       ../../system/applications/appimage.nix
       ../../system/applications/flatpak.nix
       ../../system/applications/1password.nix
+      ../../system/applications/citrix.nix
     ];
 
   # Apparently doing this in pkgs isn't enough
