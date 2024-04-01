@@ -12,6 +12,7 @@
       ../../system/applications/flatpak.nix
       ../../system/applications/1password.nix
       ../../system/applications/citrix.nix
+      ../../system/applications/messaging.nix
     ];
 
   # Apparently doing this in pkgs isn't enough
