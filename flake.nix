@@ -37,7 +37,6 @@
         };
         overlays = [
           (import overlays/kubectl.nix)
-          (import overlays/lenside.nix)
         ];
       };
 
@@ -62,8 +61,8 @@
       homeConfigurations = {
         user = home-manager.lib.homeManagerConfiguration {
           inherit pkgs;
-          modules = [ 
-            (./. + "/profiles" + ("/" + systemSettings.profile) + "/home.nix") 
+          modules = [
+            (./. + "/profiles" + ("/" + systemSettings.profile) + "/home.nix")
           ];
           extraSpecialArgs = {
             inherit pkgs-stable;
@@ -77,7 +76,7 @@
       nixosConfigurations = {
         system = lib.nixosSystem {
           system = systemSettings.system;
-          modules = [ 
+          modules = [
             (./. + "/profiles" + ("/" + systemSettings.profile) + "/configuration.nix")
           ];
           specialArgs = {
@@ -89,7 +88,7 @@
           };
         };
       };
-    }; 
+    };
 
   inputs = {
     nixpkgs.url = "nixpkgs/nixos-unstable";
@@ -97,7 +96,7 @@
     nixpkgs-starkca90.url = "github:starkca90/nixpkgs/master";
 
     nixos-hardware.url = "nixos-hardware/master";
-    
+
     home-manager.url = "github:nix-community/home-manager/master";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
 

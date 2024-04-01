@@ -17,9 +17,9 @@
 
     extraModprobeConfig = "options vfio-pci ids=1002:7480,1002:ab30";
     extraModulePackages = with config.boot.kernelPackages; [ kvmfr ];
-    
+
     initrd = {
-      
+
       availableKernelModules = [
         "amdgpu"
         "nvme"
@@ -34,7 +34,7 @@
         "vfio-pci"
         "vfio_iommu_type1"
       ];
-      
+
       kernelModules = [
         "vfio"
         "vfio-pci"
@@ -42,7 +42,7 @@
         # Else GPU will grab PCI device before it can be set for vfio-pci passthru
         "amdgpu"
       ];
-      
+
       preDeviceCommands = ''
         DEVS="0000:03:00.0 0000:03:00.1"
         for DEV in $DEVS; do
