@@ -1,7 +1,7 @@
 {
   description = "starkca90's Main Flake";
 
-  outputs = inputs@{ self, nixpkgs, nixpkgs-stable, nixpkgs-starkca90, nixos-hardware, home-manager, nixd, ... }:
+  outputs = inputs@{ self, nixpkgs, nixpkgs-stable, nixos-hardware, home-manager, nixd, ... }:
     let
 
       systemSettings = {
@@ -48,14 +48,6 @@
         };
       };
 
-      pkgs-starkca90 = import nixpkgs-starkca90 {
-        system = systemSettings.system;
-        config = {
-          allowUnfree = true;
-          allowUnfreePredicate = (_: true);
-        };
-      };
-
       lib = nixpkgs.lib;
     in {
       homeConfigurations = {
@@ -66,7 +58,6 @@
           ];
           extraSpecialArgs = {
             inherit pkgs-stable;
-            inherit pkgs-starkca90 ;
             inherit systemSettings;
             inherit userSettings;
           };
@@ -81,7 +72,6 @@
           ];
           specialArgs = {
             inherit pkgs-stable;
-            inherit pkgs-starkca90 ;
             inherit nixos-hardware;
             inherit systemSettings;
             inherit userSettings;
@@ -93,7 +83,6 @@
   inputs = {
     nixpkgs.url = "nixpkgs/nixos-unstable";
     nixpkgs-stable.url = "nixpkgs/nixos-23.11";
-    nixpkgs-starkca90.url = "github:starkca90/nixpkgs/master";
 
     nixos-hardware.url = "nixos-hardware/master";
 

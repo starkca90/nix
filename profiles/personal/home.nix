@@ -1,4 +1,4 @@
-{ config, lib, pkgs, pkgs-starkca90 , userSettings, ... }:
+{ config, lib, pkgs, userSettings, ... }:
 
 {
   # Home Manager needs a bit of information about you and the paths it should
