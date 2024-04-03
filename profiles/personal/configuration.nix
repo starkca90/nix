@@ -8,12 +8,16 @@
   imports =
     [
       ( import  ../../hardware/${systemSettings.hardware}.nix {inherit config lib pkgs modulesPath nixos-hardware;})
+      ../../system/desktop_environments/gnome.nix
       ../../system/applications/appimage.nix
       ../../system/applications/flatpak.nix
       ../../system/applications/1password.nix
       ../../system/applications/citrix.nix
-      ../../system/applications/messaging.nix
+      # ../../system/applications/messaging.nix
     ];
+
+  # Use the latest linux kernel
+  boot.kernelPackages = pkgs.linuxPackages_latest;
 
   # Apparently doing this in pkgs isn't enough
   nixpkgs.config.allowUnfree = true;
@@ -63,18 +67,6 @@
 ## TODO: Move these to their own modules
   # Enable the X11 windowing system.
   services.xserver.enable = true;
-
-
-  # Enable the GNOME Desktop Environment.
-  services.xserver.displayManager.gdm.enable = true;
-  services.xserver.desktopManager.gnome = {
-    enable = true;
-    extraGSettingsOverridePackages = [ pkgs.gnome.mutter ];
-    extraGSettingsOverrides = ''
-      [org.gnome.mutter]
-      experimental-features=['scale-monitor-framebuffer']
-    '';
-  };
 
   services.xserver = {
     xkb = {

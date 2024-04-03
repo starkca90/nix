@@ -12,8 +12,7 @@
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
 
   boot = {
-    # amdgpu.abmleve=1 <- Decrease ambient light level by 1
-    kernelParams = [ "amdgpu.abmlevel=1" ];
+    kernelParams = [ ];
 
     extraModprobeConfig = "options vfio-pci ids=1002:7480,1002:ab30";
     extraModulePackages = with config.boot.kernelPackages; [ kvmfr ];
