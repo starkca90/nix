@@ -9,6 +9,7 @@
     [
       ( import  ../../hardware/${systemSettings.hardware}.nix {inherit config lib pkgs modulesPath nixos-hardware;})
       ../../system/desktop_environments/gnome.nix
+      ../../system/applications/devops.nix
       ../../system/applications/appimage.nix
       ../../system/applications/flatpak.nix
       ../../system/applications/1password.nix
