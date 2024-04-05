@@ -8,6 +8,7 @@
   imports =
     [
       ( import  ../../hardware/${systemSettings.hardware}.nix {inherit config lib pkgs modulesPath nixos-hardware;})
+      ../../system/tailscale.nix
       ../../system/desktop_environments/gnome.nix
       ../../system/applications/devops.nix
       ../../system/applications/appimage.nix

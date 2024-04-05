@@ -44,7 +44,6 @@
     libreoffice-fresh
 
     # Home VPN Clients
-    tailscale
     openvpn
     gnome.networkmanager-openvpn
 

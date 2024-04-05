@@ -11,5 +11,7 @@
     # Automation (Ansible)
     ansible
     ansible-lint
+
+    gnumake
   ]);
 }
