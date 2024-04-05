@@ -7,6 +7,7 @@
 
     # Infrastructure as code (Terraform/OpenTofu)
     opentofu
+    terraform-ls
 
     # Automation (Ansible)
     ansible

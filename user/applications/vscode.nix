@@ -4,7 +4,9 @@
   programs.vscode = {
     enable = true;
     extensions = with pkgs.vscode-extensions; [
+      # General development
       editorconfig.editorconfig
+      ms-vscode.makefile-tools
 
       # nix
       jnoortheen.nix-ide
@@ -27,5 +29,32 @@
         sha256 = "1gw5bfbn3fysfzz7ys58zg1vm4kz60x2xm2w9kj7li3lz1b96w9h";
       }
     ];
+
+    userSettings = {
+      # General editor config
+      "editor.suggest.preview" = true;
+
+      # nix-ide
+      "nix.enableLanguageServer" = true;
+      "nix.serverPath" = "nixd";
+
+      # Opentofu
+      "opentofu.experimentalFeatures.prefillRequiredFields" = true;
+      "opentofu.languageServer.path" = "terraform-ls";
+      "opentofu.languageServer.opentofu.path" = "/run/current-system/sw/bin/tofu";
+
+
+      # File formatting
+      "[terraform]" = {
+        "editor.defaultFormatter" = "gamunu.opentofu";
+        "editor.formatOnSave" = true;
+        "editor.formatOnSaveMode" = "file";
+      };
+      "[terraform-vars]" = {
+        "editor.defaultFormatter" = "gamunu.opentofu";
+        "editor.formatOnSave" = true;
+        "editor.formatOnSaveMode" = "file";
+      };
+    };
   };
 }
