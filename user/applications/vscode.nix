@@ -7,6 +7,7 @@
       # General development
       editorconfig.editorconfig
       ms-vscode.makefile-tools
+      github.copilot
 
       # nix
       jnoortheen.nix-ide
