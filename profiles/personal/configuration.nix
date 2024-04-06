@@ -8,6 +8,7 @@
   imports =
     [
       ( import  ../../hardware/${systemSettings.hardware}.nix {inherit config lib pkgs modulesPath nixos-hardware;})
+      ../../system/certificates.nix
       ../../system/tailscale.nix
       ../../system/desktop_environments/gnome.nix
       ../../system/applications/devops.nix
@@ -112,6 +113,7 @@ programs.dconf.enable = true;
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
+    openssl
     vim
     wget
     home-manager
