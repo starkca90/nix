@@ -7,10 +7,10 @@
 {
   imports =
     [
-      ( import  ../../hardware/${systemSettings.hardware}.nix {inherit config lib pkgs modulesPath nixos-hardware;})
+      (import  ../../hardware/${systemSettings.hardware}.nix { inherit config lib pkgs modulesPath nixos-hardware; })
       ../../system/certificates.nix
       ../../system/tailscale.nix
-      ../../system/desktop_environments/gnome.nix
+      ../../system/desktop_environments/kde.nix
       ../../system/applications/devops.nix
       ../../system/applications/appimage.nix
       ../../system/applications/flatpak.nix
@@ -49,6 +49,13 @@
   networking.hostName = systemSettings.hostname; # Define your hostname.
   networking.networkmanager.enable = true; # Use networkmanager
 
+  networking.firewall = {
+    enable = true;
+    allowedTCPPortRanges = [
+      { from = 8000; to = 8010; }
+    ];
+  };
+
   # Timezone and locale
   time.timeZone = systemSettings.timezone; # time zone
 
@@ -67,17 +74,7 @@
   };
 
 
-## TODO: Move these to their own modules
-  # Enable the X11 windowing system.
-  services.xserver.enable = true;
-
-  services.xserver = {
-    xkb = {
-      layout = "us";
-      variant = "";
-      options = "caps:escape";
-    };
-  };
+  ## TODO: Move these to their own modules
 
   # Enable CUPS to print documents.
   services.printing.enable = true;
@@ -94,8 +91,8 @@
     jack.enable = true;
   };
 
-programs.dconf.enable = true;
-## TODO END
+  programs.dconf.enable = true;
+  ## TODO END
 
 
   # Enable touchpad support (enabled default in most desktopManager).
@@ -106,7 +103,7 @@ programs.dconf.enable = true;
     isNormalUser = true;
     description = userSettings.fullName;
     extraGroups = [ "networkmanager" "wheel" ];
-    packages = [];
+    packages = [ ];
     uid = 1000;
   };
 
