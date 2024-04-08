@@ -1,7 +1,7 @@
 {
   description = "starkca90's Main Flake";
 
-  outputs = inputs@{ self, nixpkgs, nixpkgs-stable, nixos-hardware, home-manager, nixd, ... }:
+  outputs = inputs@{ self, nixpkgs, nixpkgs-stable, nixos-hardware, nix-flatpak, home-manager, nixd, ... }:
     let
 
       systemSettings = {
@@ -55,6 +55,7 @@
           inherit pkgs;
           modules = [
             (./. + "/profiles" + ("/" + systemSettings.profile) + "/home.nix")
+            nix-flatpak.homeManagerModules.nix-flatpak
           ];
           extraSpecialArgs = {
             inherit pkgs-stable;
@@ -69,6 +70,7 @@
           system = systemSettings.system;
           modules = [
             (./. + "/profiles" + ("/" + systemSettings.profile) + "/configuration.nix")
+            nix-flatpak.nixosModules.nix-flatpak
           ];
           specialArgs = {
             inherit pkgs-stable;
@@ -83,6 +85,8 @@
   inputs = {
     nixpkgs.url = "nixpkgs/nixos-unstable";
     nixpkgs-stable.url = "nixpkgs/nixos-23.11";
+
+    nix-flatpak.url = "github:gmodena/nix-flatpak";
 
     nixos-hardware.url = "nixos-hardware/master";
 

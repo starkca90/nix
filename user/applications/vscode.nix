@@ -17,6 +17,34 @@
 
     ] ++ pkgs.vscode-utils.extensionsFromVscodeMarketplace [
       {
+        name = "markdown-checkbox";
+        publisher = "bierner";
+        version = "0.4.0";
+        sha256 = "0jbfi0av84ixwhcpysh9gyrsfxpy65igiidrdarn7vgsvxsdr0q2";
+      }
+
+      {
+        name = "markdown-emoji";
+        publisher = "bierner";
+        version = "0.3.0";
+        sha256 = "0llmgk3rwcslqfnqp7xgvrqjqly3hvisahzmi0p49wn0w0fky3xg";
+      }
+
+      {
+        name = "markdown-mermaid";
+        publisher = "bierner";
+        version = "1.22.0";
+        sha256 = "1ii6slnmj5ck40mdnixbybqjqbmqg7wl7yqw66p31wsnpqk71q28";
+      }
+
+      {
+        name = "markdown-preview-github-styles";
+        publisher = "bierner";
+        version = "2.0.4";
+        sha256 = "0p2iwc52id5616wcvhw7dcnjw190s36fc6vbma8cldncz33ab6wc";
+      }
+
+      {
         name = "vscode-packer-powertools";
         publisher = "sztheory";
         version = "0.3.0";

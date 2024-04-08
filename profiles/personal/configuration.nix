@@ -9,8 +9,9 @@
     [
       (import  ../../hardware/${systemSettings.hardware}.nix { inherit config lib pkgs modulesPath nixos-hardware; })
       ../../system/certificates.nix
+      ../../system/pam.nix
       ../../system/tailscale.nix
-      ../../system/desktop_environments/kde.nix
+      ../../system/desktop_environments/gnome.nix
       ../../system/applications/devops.nix
       ../../system/applications/appimage.nix
       ../../system/applications/flatpak.nix
@@ -32,7 +33,7 @@
   boot = {
     # Common kernel modules
     kernelModules = [ "i2c-dev" "i2c-piix4" "cpufreq_powersave" ];
-    plymouth.enable = true;
+    plymouth.enable = false;
     loader = {
       efi.canTouchEfiVariables = if (systemSettings.bootMode == "uefi") then true else false;
       grub = {
@@ -110,6 +111,13 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
+    # System Applications
+    aha
+    clinfo
+    glxinfo
+    vulkan-tools
+    wayland-utils
+
     openssl
     vim
     wget
