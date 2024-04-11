@@ -2,7 +2,7 @@
 
 {
   imports = [
-    ./python.nix
+    # ./python.nix
   ];
 
   environment.systemPackages = (with pkgs; [
@@ -15,9 +15,10 @@
     opentofu
     terraform-ls
 
-    # Automation (Ansible)
-    # ansible <- Installed in python.nix
-    ansible-lint
+    # Automation (Ansible) (Moved to shell.nix in Project directory... Couldn't get pywinrm to work correctly at the system level)
+    # ansible
+    # ansible-lint
+    # (python3.withPackages(ps: [ ps.ansible ps.pip ps.requests ps.pywinrm]))
 
     gnumake
   ]);
