@@ -49,8 +49,10 @@ in
     nix-direnv.enable = true;
   };
 
+  # Fuzzy Finder (works with zofixede)
   programs.fzf.enable = true;
 
+  # Alternative to cd that learns common directories
   programs.zoxide = {
     enable = true;
     enableZshIntegration = true;
