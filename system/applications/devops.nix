@@ -25,7 +25,6 @@
 
     jetbrains.pycharm-professional
     jetbrains.rider
-    jetbrains-toolbox
     jetbrains.webstorm
   ]);
 }
