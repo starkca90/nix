@@ -15,5 +15,6 @@
   services.flatpak.packages = [
     { appId = "org.remmina.Remmina"; origin = "flathub"; }
     { appId = "com.github.IsmaelMartinez.teams_for_linux"; origin = "flathub"; }
+    { appId = "org.gnome.World.PikaBackup"; origin = "flathub"; }
   ];
 }

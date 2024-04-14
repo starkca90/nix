@@ -17,6 +17,7 @@
       ../../system/applications/flatpak.nix
       ../../system/applications/1password.nix
       ../../system/applications/citrix.nix
+      ../../system/docker.nix
       # ../../system/applications/messaging.nix
     ];
 
@@ -104,7 +105,7 @@
   users.users.${userSettings.username} = {
     isNormalUser = true;
     description = userSettings.fullName;
-    extraGroups = [ "networkmanager" "wheel" ];
+    extraGroups = [ "networkmanager" "wheel" "docker" ];
     packages = [ ];
     uid = 1000;
   };

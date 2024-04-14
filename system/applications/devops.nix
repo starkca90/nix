@@ -21,5 +21,11 @@
     # (python3.withPackages(ps: [ ps.ansible ps.pip ps.requests ps.pywinrm]))
 
     gnumake
+    gitkraken
+
+    jetbrains.pycharm-professional
+    jetbrains.rider
+    jetbrains-toolbox
+    jetbrains.webstorm
   ]);
 }
