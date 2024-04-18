@@ -2,12 +2,13 @@
 # your system. Help is available in the configuration.nix(5) man page, on
 # https://search.nixos.org/options and in the NixOS manual (`nixos-help`).
 
-{ config, lib, pkgs, pkgs-stable, nixos-hardware, systemSettings, userSettings, modulesPath, ... }:
+{ config, lib, pkgs, pkgs-stable, pkgs-starkca90 , nixos-hardware, systemSettings, userSettings, modulesPath, ... }:
 
 {
   imports =
     [
-      (import  ../../hardware/${systemSettings.hardware}.nix { inherit config lib pkgs modulesPath nixos-hardware; })
+      (import  ../../hardware/${systemSettings.hardware}.nix { inherit config lib pkgs pkgs-starkca90 modulesPath nixos-hardware; })
+      ../../system/nix-optimizations.nix
       ../../system/certificates.nix
       ../../system/pam.nix
       ../../system/tailscale.nix
@@ -22,7 +23,7 @@
     ];
 
   # Use the latest linux kernel
-  boot.kernelPackages = pkgs.linuxPackages_latest;
+  boot.kernelPackages = pkgs-starkca90.linuxPackages_latest;
 
   # Apparently doing this in pkgs isn't enough
   nixpkgs.config.allowUnfree = true;
@@ -34,7 +35,7 @@
   boot = {
     # Common kernel modules
     kernelModules = [ "i2c-dev" "i2c-piix4" "cpufreq_powersave" ];
-    plymouth.enable = false;
+    plymouth.enable = true;
     loader = {
       efi.canTouchEfiVariables = if (systemSettings.bootMode == "uefi") then true else false;
       grub = {
