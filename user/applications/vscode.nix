@@ -5,6 +5,7 @@
     enable = true;
     extensions = with pkgs.vscode-extensions; [
       # General development
+      eamodio.gitlens
       editorconfig.editorconfig
       ms-vscode.makefile-tools
       github.copilot
