@@ -12,9 +12,8 @@
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
 
   boot = {
-    kernelParams = [ ];
 
-    extraModprobeConfig = "options vfio-pci ids=1002:7480,1002:ab30";
+    # extraModprobeConfig = "options vfio-pci ids=1002:7480,1002:ab30";
     extraModulePackages = with config.boot.kernelPackages; [ kvmfr ];
 
     initrd = {
@@ -29,35 +28,45 @@
         "uas"
         "sd_mod"
         "pci_stub"
-        "vfio"
-        "vfio-pci"
-        "vfio_iommu_type1"
+        # "vfio"
+        # "vfio-pci"
+        # "vfio_iommu_type1"
       ];
 
       kernelModules = [
-        "vfio"
-        "vfio-pci"
+        # "vfio"
+        # "vfio-pci"
         # Order matters. vfio needs to come before amdgpu
         # Else GPU will grab PCI device before it can be set for vfio-pci passthru
         "amdgpu"
       ];
 
-      preDeviceCommands = ''
-        DEVS="0000:03:00.0 0000:03:00.1"
-        for DEV in $DEVS; do
-          echo "vfio-pci" > /sys/bus/pci/devices/$DEV/driver_override
-        done
-        modprobe -i vfio-pci
-      '';
+      # preDeviceCommands = ''
+      #   DEVS="0000:03:00.0 0000:03:00.1"
+      #   for DEV in $DEVS; do
+      #     echo "vfio-pci" > /sys/bus/pci/devices/$DEV/driver_override
+      #   done
+      #   modprobe -i vfio-pci
+      # '';
     };
 
     kernelModules = [
       "kvm-amd"
       "pci_stub"
-      "vfio-pci.ids=1002:7480,1002:ab30"
-      "pci-stub.ids=1002:7480,1002:ab30"
+      # "vfio_pci"
+      # "vfio"
+      # "vfio_iommu_type1"
+      "kvmfr"
+    ];
+
+    kernelParams = [
+      "iommu=pt"
+      "amd_iommu=on"
+      # "vfio-pci.ids=1002:7480,1002:ab30"
+      # "pci-stub.ids=1002:7480,1002:ab30"
       "mem_sleep_default=deep"
     ];
+
   };
 
   hardware = {

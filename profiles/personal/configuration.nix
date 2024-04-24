@@ -18,7 +18,9 @@
       ../../system/applications/flatpak.nix
       ../../system/applications/1password.nix
       ../../system/applications/citrix.nix
+      ../../system/applications/gaming.nix
       ../../system/docker.nix
+      (import ../../system/virtualization.nix { inherit pkgs pkgs-stable; })
       # ../../system/applications/messaging.nix
     ];
 
@@ -106,7 +108,7 @@
   users.users.${userSettings.username} = {
     isNormalUser = true;
     description = userSettings.fullName;
-    extraGroups = [ "networkmanager" "wheel" "docker" ];
+    extraGroups = [ "networkmanager" "wheel" "docker" "libvirtd" ];
     packages = [ ];
     uid = 1000;
   };
@@ -129,6 +131,8 @@
     nixd
     nixpkgs-fmt
     zsh
+
+    thunderbird
   ];
 
   # Set ZSH as default shell
