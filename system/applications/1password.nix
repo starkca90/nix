@@ -1,4 +1,4 @@
-{ config, lib, pkgs, userSettings, ... }:
+{ pkgs, userSettings, ... }:
 
 let
   package = pkgs._1password-gui-beta;

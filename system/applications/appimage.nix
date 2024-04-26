@@ -2,7 +2,7 @@
 # to allow Appimages to be invoked directory (without launching
 # via appimage-run)
 
-{ config, pkgs, ... }:
+{ pkgs, ... }:
 
 {
   environment.systemPackages = with pkgs; [
