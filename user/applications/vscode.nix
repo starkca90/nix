@@ -16,6 +16,9 @@
       # devops
       redhat.ansible
 
+      # Docker
+      ms-azuretools.vscode-docker
+
     ] ++ pkgs.vscode-utils.extensionsFromVscodeMarketplace [
       {
         name = "markdown-checkbox";

@@ -7,6 +7,7 @@
   imports =
     [
       (modulesPath + "/installer/scan/not-detected.nix")
+      (nixos-hardware + "/framework/16-inch/cpu/7040-amd/default.nix")
     ];
 
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
@@ -71,7 +72,6 @@
 
   hardware = {
     cpu.amd.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
-    keyboard.qmk.enable = true;
 
     opengl = {
       driSupport = true;
