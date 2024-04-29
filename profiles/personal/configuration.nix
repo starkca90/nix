@@ -8,6 +8,7 @@
   imports =
     [
       (import  ../../hardware/${systemSettings.hardware}.nix { inherit config lib pkgs pkgs-starkca90 modulesPath nixos-hardware; })
+      # ../../system/kerberos.nix
       ../../system/nix-optimizations.nix
       ../../system/certificates.nix
       ../../system/pam.nix
