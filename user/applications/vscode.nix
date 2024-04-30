@@ -7,8 +7,12 @@
       # General development
       eamodio.gitlens
       editorconfig.editorconfig
+      esbenp.prettier-vscode
       ms-vscode.makefile-tools
       github.copilot
+
+      # Markdown
+      davidanson.vscode-markdownlint
 
       # nix
       jnoortheen.nix-ide
@@ -19,7 +23,16 @@
       # Docker
       ms-azuretools.vscode-docker
 
+      hashicorp.hcl
+
     ] ++ pkgs.vscode-utils.extensionsFromVscodeMarketplace [
+      {
+        name = "reflow-markdown";
+        publisher = "marvhen";
+        version = "2.1.0";
+        sha256 = "1y99zry5ivwvw2imr376435q1g911aj4rzkh5x8h83rzlg9lgz2f";
+      }
+
       {
         name = "markdown-checkbox";
         publisher = "bierner";
@@ -66,6 +79,23 @@
     userSettings = {
       # General editor config
       "editor.suggest.preview" = true;
+      "editor.bracketPairColorization.enabled" = true;
+      "editor.bracketPairColorization.independentPairColors" = true;
+      "editor.defaultFormatter" = "esbenp.prettier-vscode";
+      "editor.formatOnSaveMode" = "modificationsIfAvailable";
+      "editor.guides.bracketPairs" = "true";
+      "files.insertFinalNewline" = true;
+      "files.trimTrailingWhitespace" = true;
+
+      "files.watcherExclude" = {
+        "**/.DS_Store" = true;
+        "**/.site/**" = true;
+        "**/.trunk/**" = true;
+      };
+
+      # Reflow Markdown
+      "reflowMarkdown.preferredLineLength" = 100;
+      "reflowMarkdown.wrapLongLinks" = "wrap";
 
       # nix-ide
       "nix.enableLanguageServer" = true;
@@ -78,6 +108,23 @@
 
 
       # File formatting
+      "[json]" = {
+        "editor.defaultFormatter" = "vscode.json-language-features";
+        "editor.formatOnPaste" = true;
+        "editor.formatOnSave" = true;
+        "editor.formatOnType" = true;
+        "editor.trimAutoWhitespace" = true;
+      };
+      "[md]" = {
+        "editor.defaultFormatter" = "DavidAnson.vscode-markdownlint";
+        "editor.formatOnPaste" = true;
+        "editor.formatOnSave" = false;
+        "editor.formatOnType" = true;
+        "editor.trimAutoWhitespace" = true;
+        "editor.wordWrap" = "bounded";
+        "editor.wordWrapColumn" = 100;
+        "editor.rulers" = [ 100 ];
+      };
       "[terraform]" = {
         "editor.defaultFormatter" = "gamunu.opentofu";
         "editor.formatOnSave" = true;
