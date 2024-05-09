@@ -7,7 +7,7 @@
   imports =
     [
       (modulesPath + "/installer/scan/not-detected.nix")
-      (nixos-hardware + "/framework/16-inch/cpu/7040-amd/default.nix")
+      (nixos-hardware + "/framework/16-inch/7040-amd")
     ];
 
   # Disable initrd.kernelModules from nixos-hardware

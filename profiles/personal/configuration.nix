@@ -39,14 +39,22 @@
     # Common kernel modules
     kernelModules = [ "i2c-dev" "i2c-piix4" "cpufreq_powersave" ];
     plymouth.enable = true;
+    lanzaboote = {
+      enable = true;
+      configurationLimit = 6;
+      pkiBundle = "/etc/secureboot";
+    };
     loader = {
       efi.canTouchEfiVariables = if (systemSettings.bootMode == "uefi") then true else false;
       grub = {
-        enable = true;
+        enable = lib.mkForce false;
         configurationLimit = 6;
         device = systemSettings.grubDevice;
         efiSupport = if (systemSettings.bootMode == "uefi") then true else false;
         useOSProber = true;
+      };
+      systemd-boot = {
+        enable = lib.mkForce false;
       };
     };
   };
