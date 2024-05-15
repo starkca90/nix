@@ -10,8 +10,8 @@
 final: prev:
 
 let
-  version = "1.28.9";
-  sha256 = "sha256-YC9Yu0sjpSdtK7qbl7914IvGk3xu30lV6ihKdq/LLoc=";
+  version = "1.28.10";
+  sha256 = "sha256-1iJ+rqWNl7VjRgFRX4w1/ykeOSAABSC0/HnqWQOytpM=";
 in
 {
   kubectl = prev.kubectl.overrideAttrs (old: {

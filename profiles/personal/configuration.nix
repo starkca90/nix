@@ -142,6 +142,7 @@
     zsh
 
     thunderbird
+    keepassxc
   ];
 
   # Set ZSH as default shell
