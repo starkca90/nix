@@ -26,7 +26,7 @@
     ];
 
   # Use the latest linux kernel
-  boot.kernelPackages = pkgs-starkca90.linuxPackages_latest;
+  boot.kernelPackages = pkgs.linuxPackages_latest;
 
   # Apparently doing this in pkgs isn't enough
   nixpkgs.config.allowUnfree = true;
