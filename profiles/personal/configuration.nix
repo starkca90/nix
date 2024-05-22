@@ -2,12 +2,12 @@
 # your system. Help is available in the configuration.nix(5) man page, on
 # https://search.nixos.org/options and in the NixOS manual (`nixos-help`).
 
-{ config, lib, pkgs, pkgs-stable, pkgs-starkca90 , nixos-hardware, systemSettings, userSettings, modulesPath, ... }:
+{ config, lib, pkgs, pkgs-stable, nixos-hardware, systemSettings, userSettings, modulesPath, ... }:
 
 {
   imports =
     [
-      (import  ../../hardware/${systemSettings.hardware}.nix { inherit config lib pkgs pkgs-starkca90 modulesPath nixos-hardware; })
+      (import  ../../hardware/${systemSettings.hardware}.nix { inherit config systemSettings lib pkgs modulesPath nixos-hardware; })
       # ../../system/kerberos.nix
       ../../system/nix-optimizations.nix
       ../../system/certificates.nix
@@ -21,6 +21,7 @@
       ../../system/applications/citrix.nix
       ../../system/applications/gaming.nix
       ../../system/docker.nix
+      ../../VPN/openconnect
       (import ../../system/virtualization.nix { inherit pkgs pkgs-stable; })
       # ../../system/applications/messaging.nix
     ];
@@ -70,6 +71,8 @@
       { from = 8000; to = 8010; }
     ];
   };
+
+  stylix.base16Scheme = "${pkgs.base16-schemes}/share/themes/windows-95.yaml";
 
   # Timezone and locale
   time.timeZone = systemSettings.timezone; # time zone

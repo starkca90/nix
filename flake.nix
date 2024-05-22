@@ -1,7 +1,7 @@
 {
   description = "starkca90's Main Flake";
 
-  outputs = inputs@{ self, nixpkgs, nixpkgs-stable, nixpkgs-starkca90, nixos-hardware, nix-flatpak, home-manager, lanzaboote, nixd, ... }:
+  outputs = inputs@{ nixpkgs, nixpkgs-stable, nixpkgs-starkca90, nixos-hardware, nix-flatpak, home-manager, lanzaboote, ... }:
     let
 
       systemSettings = {
@@ -81,6 +81,7 @@
             (./. + "/profiles" + ("/" + systemSettings.profile) + "/configuration.nix")
             nix-flatpak.nixosModules.nix-flatpak
             lanzaboote.nixosModules.lanzaboote
+            inputs.stylix.nixosModules.stylix
           ];
           specialArgs = {
             inherit nixos-hardware;
@@ -109,5 +110,7 @@
     lanzaboote.inputs.nixpkgs.follows = "nixpkgs";
 
     nixd.url = "github:nix-community/nixd";
+
+    stylix.url = "github:danth/stylix";
   };
 }

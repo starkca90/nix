@@ -50,8 +50,8 @@
       {
         name = "markdown-mermaid";
         publisher = "bierner";
-        version = "1.22.0";
-        sha256 = "1ii6slnmj5ck40mdnixbybqjqbmqg7wl7yqw66p31wsnpqk71q28";
+        version = "1.23.0";
+        sha256 = "0azf61v4gm4izb4s83bjxnfnnglnql6w5mxjf8pkq38wr56k31sc";
       }
 
       {
@@ -71,8 +71,8 @@
       {
         name = "opentofu";
         publisher = "gamunu";
-        version = "0.1.1";
-        sha256 = "1gw5bfbn3fysfzz7ys58zg1vm4kz60x2xm2w9kj7li3lz1b96w9h";
+        version = "0.2.0";
+        sha256 = "1sfi08f7m7wvx57c6c86knbblv9fyhvy57lrff3m5dx8i0qpn82l";
       }
     ];
 
