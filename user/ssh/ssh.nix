@@ -30,13 +30,6 @@
         identitiesOnly = true;
       };
 
-      "gitlab-home" = lib.hm.dag.entryBefore ["gitlab.caseystark.com"] {
-        hostname = "gitlab.caseystark.com";
-        user = "git";
-        identityFile = "~/.ssh/casey.pub";
-        identitiesOnly = true;
-      };
-
       "gitlab.caseystark.com" = lib.hm.dag.entryBefore ["*.caseystark.com"] {
         user = "git";
         identityFile = "~/.ssh/casey.pub";

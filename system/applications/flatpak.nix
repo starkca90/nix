@@ -17,6 +17,7 @@
       { appId = "com.github.IsmaelMartinez.teams_for_linux"; origin = "flathub"; }
       { appId = "org.gnome.World.PikaBackup"; origin = "flathub"; }
       { appId = "com.usebottles.bottles"; origin = "flathub"; }
+      { appId = "io.github.pieterdd.RcloneShuttle"; origin = "flathub"; }
     ];
   };
 

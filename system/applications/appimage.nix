@@ -1,5 +1,5 @@
 # Adds support for Appimage and registers Appimage's Magic number
-# to allow Appimages to be invoked directory (without launching
+# to allow Appimages to be invoked directly (without launching
 # via appimage-run)
 
 { pkgs, ... }:

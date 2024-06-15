@@ -135,6 +135,9 @@
     vulkan-tools
     wayland-utils
 
+    alacritty
+    gnomeExtensions.toggle-alacritty
+
     openssl
     vim
     wget
