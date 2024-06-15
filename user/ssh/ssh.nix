@@ -30,6 +30,12 @@
         identitiesOnly = true;
       };
 
+      "pfsense.caseystark.com" = lib.hm.dag.entryBefore ["*.caseystark.com"] {
+        user = "admin";
+        identityFile = "~/.ssh/casey.pub";
+        identitiesOnly = true;
+      };
+
       "gitlab.caseystark.com" = lib.hm.dag.entryBefore ["*.caseystark.com"] {
         user = "git";
         identityFile = "~/.ssh/casey.pub";

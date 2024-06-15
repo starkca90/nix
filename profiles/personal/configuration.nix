@@ -14,6 +14,7 @@
       ../../system/pam.nix
       ../../system/tailscale.nix
       ../../system/desktop_environments/gnome.nix
+      ../../system/applications/wireshark.nix
       ../../system/applications/devops.nix
       ../../system/applications/appimage.nix
       ../../system/applications/flatpak.nix
