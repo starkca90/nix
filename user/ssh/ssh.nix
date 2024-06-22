@@ -48,6 +48,15 @@
         identitiesOnly = true;
       };
 
+      "vg" = lib.hm.dag.entryBefore ["*.caseystark.com"] {
+        user = "cisco";
+        hostname = "172.16.50.15";
+        extraOptions = {
+          PubkeyAuthentication = "no";
+          PreferredAuthentications = "password";
+        };
+      };
+
       "vcenter.caseystark.com" = lib.hm.dag.entryBefore ["*.caseystark.com"] {
         user = "root";
         extraOptions = {
