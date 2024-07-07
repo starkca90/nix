@@ -10,9 +10,6 @@
       (nixos-hardware + "/framework/16-inch/7040-amd")
     ];
 
-  # Disable initrd.kernelModules from nixos-hardware
-  hardware.amdgpu.loadInInitrd = false;
-
   nixpkgs.hostPlatform = lib.mkDefault systemSettings.system;
 
   boot = {
