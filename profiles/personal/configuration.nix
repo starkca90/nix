@@ -19,7 +19,7 @@
       ../../system/applications/appimage.nix
       ../../system/applications/flatpak.nix
       ../../system/applications/1password.nix
-      ../../system/applications/citrix.nix
+      ../../system/applications/misc.nix
       ../../system/applications/gaming.nix
       ../../system/docker.nix
       ../../VPN/openconnect

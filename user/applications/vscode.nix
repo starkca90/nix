@@ -10,6 +10,7 @@
       esbenp.prettier-vscode
       ms-vscode.makefile-tools
       github.copilot
+      ms-vscode-remote.remote-containers
 
       # Markdown
       davidanson.vscode-markdownlint
@@ -50,8 +51,8 @@
       {
         name = "markdown-mermaid";
         publisher = "bierner";
-        version = "1.23.0";
-        sha256 = "0azf61v4gm4izb4s83bjxnfnnglnql6w5mxjf8pkq38wr56k31sc";
+        version = "1.23.1";
+        sha256 = "1qyhm4cq5i2f1c17hy61bhr3h6ydg44s52ygqq6cga712mw951c5";
       }
 
       {
@@ -71,8 +72,8 @@
       {
         name = "opentofu";
         publisher = "gamunu";
-        version = "0.2.0";
-        sha256 = "1sfi08f7m7wvx57c6c86knbblv9fyhvy57lrff3m5dx8i0qpn82l";
+        version = "0.2.1";
+        sha256 = "1lip09r9618pk8id39yicxjs9blxwrw3vsizp18h1fw66hfxsb1s";
       }
     ];
 
