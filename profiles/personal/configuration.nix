@@ -139,6 +139,8 @@
     alacritty
     gnomeExtensions.toggle-alacritty
 
+    dig
+
     openssl
     vim
     wget

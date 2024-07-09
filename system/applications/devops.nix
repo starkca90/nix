@@ -26,5 +26,7 @@
     jetbrains.pycharm-professional
     jetbrains.rider
     jetbrains.webstorm
+
+    postman
   ]);
 }
