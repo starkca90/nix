@@ -83,9 +83,9 @@
             nix-flatpak.nixosModules.nix-flatpak
             lanzaboote.nixosModules.lanzaboote
             inputs.stylix.nixosModules.stylix
+            disko.nixosModules.disko
           ];
           specialArgs = {
-            inherit disko;
             inherit nixos-hardware;
             inherit pkgs-stable;
             inherit pkgs-starkca90;
