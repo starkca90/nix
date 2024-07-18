@@ -8,7 +8,7 @@
         system = "x86_64-linux"; # system arch
         hardware = "framework16"; # Platform installing onto (determines hardware-configuration.nix)
         hostname = "framework16"; # hostname
-        diskid = "nvme-Samsung_SSD_980_PRO_1TB_S5P2NG0R907358K"
+        diskid = "/dev/disk/by-id/nvme-Samsung_SSD_980_PRO_1TB_S5P2NG0R907358K"
         profile = "personal"; # select a profile defined from my profiles directory
         timezone = "America/Chicago"; # select timezone
         locale = "en_US.UTF-8"; # select locale
