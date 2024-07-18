@@ -1,13 +1,14 @@
 {
   description = "starkca90's Main Flake";
 
-  outputs = inputs@{ nixpkgs, nixpkgs-stable, nixpkgs-starkca90, nixos-hardware, nix-flatpak, home-manager, lanzaboote, ... }:
+  outputs = inputs@{ nixpkgs, nixpkgs-stable, nixpkgs-starkca90, disko, nixos-hardware, nix-flatpak, home-manager, lanzaboote, ... }:
     let
 
       systemSettings = {
         system = "x86_64-linux"; # system arch
         hardware = "framework16"; # Platform installing onto (determines hardware-configuration.nix)
         hostname = "framework16"; # hostname
+        diskid = "nvme-Samsung_SSD_980_PRO_1TB_S5P2NG0R907358K"
         profile = "personal"; # select a profile defined from my profiles directory
         timezone = "America/Chicago"; # select timezone
         locale = "en_US.UTF-8"; # select locale
@@ -84,6 +85,7 @@
             inputs.stylix.nixosModules.stylix
           ];
           specialArgs = {
+            inherit disko;
             inherit nixos-hardware;
             inherit pkgs-stable;
             inherit pkgs-starkca90;
@@ -98,6 +100,9 @@
     nixpkgs.url = "nixpkgs/nixos-unstable";
     nixpkgs-stable.url = "nixpkgs/nixos-23.11";
     nixpkgs-starkca90.url = "github:starkca90/nixpkgs/update-kvmfr";
+
+    inputs.disko.url = "github:nix-community/disko";
+    inputs.disko.inputs.nixpkgs.follows = "nixpkgs";
 
     nix-flatpak.url = "github:gmodena/nix-flatpak";
 
