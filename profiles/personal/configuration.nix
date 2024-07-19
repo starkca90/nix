@@ -7,7 +7,7 @@
 {
   imports =
     [
-      (import  ../../hardware/${systemSettings.hardware}.nix { inherit config systemSettings lib pkgs modulesPath nixos-hardware; })
+      (import  ../../hardware/${systemSettings.hardware}.nix { inherit config systemSettings userSettings lib pkgs modulesPath nixos-hardware; })
       # ../../system/kerberos.nix
       ../../system/nix-optimizations.nix
       ../../system/certificates.nix
@@ -135,7 +135,6 @@
     wayland-utils
 
     alacritty
-    gnomeExtensions.toggle-alacritty
 
     dig
 

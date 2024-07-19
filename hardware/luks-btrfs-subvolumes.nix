@@ -1,6 +1,34 @@
-{ systemSettings, ... }:
+{ systemSettings, userSettings, pkgs, ... }:
 
 {
+  environment.systemPackages = with pkgs; [
+    btrfs-assistant
+    snapper
+  ];
+
+  services.snapper = {
+    snapshotRootOnBoot = true;
+    configs = {
+      root = {
+        SUBVOLUME = "/";
+        ALLOW_USERS = [ userSettings.username ];
+        TIMELINE_CLEANUP = true;
+      };
+      home = {
+        SUBVOLUME = "/home";
+        ALLOW_USERS = [ userSettings.username ];
+        TIMELINE_CREATE = true;
+        TIMELINE_CLEANUP = true;
+      };
+      nix = {
+        SUBVOLUME = "/nix";
+        ALLOW_USERS = [ userSettings.username ];
+        TIMELINE_CREATE = true;
+        TIMELINE_CLEANUP = true;
+      };
+    };
+  };
+
   disko.devices = {
     disk = {
       nixos = {

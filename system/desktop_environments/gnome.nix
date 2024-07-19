@@ -31,4 +31,9 @@
     hitori
     atomix
   ]);
+
+  environment.systemPackages =  with pkgs; [
+    gnomeExtensions.toggle-alacritty
+    gnomeExtensions.tailscale-status
+  ];
 }
