@@ -1,9 +1,11 @@
+{ systemSettings, ... }:
+
 {
   disko.devices = {
     disk = {
-      vdb = {
+      nixos = {
         type = "disk";
-        device = "/dev/vdb";
+        device = systemSettings.diskid;
         content = {
           type = "gpt";
           partitions = {

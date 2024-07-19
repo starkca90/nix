@@ -8,7 +8,7 @@
         system = "x86_64-linux"; # system arch
         hardware = "framework16"; # Platform installing onto (determines hardware-configuration.nix)
         hostname = "framework16"; # hostname
-        diskid = "/dev/disk/by-id/nvme-Samsung_SSD_980_PRO_1TB_S5P2NG0R907358K"
+        diskid = "/dev/disk/by-id/nvme-Samsung_SSD_980_PRO_1TB_S5P2NG0R907358K";
         profile = "personal"; # select a profile defined from my profiles directory
         timezone = "America/Chicago"; # select timezone
         locale = "en_US.UTF-8"; # select locale
@@ -101,8 +101,8 @@
     nixpkgs-stable.url = "nixpkgs/nixos-23.11";
     nixpkgs-starkca90.url = "github:starkca90/nixpkgs/update-kvmfr";
 
-    inputs.disko.url = "github:nix-community/disko";
-    inputs.disko.inputs.nixpkgs.follows = "nixpkgs";
+    disko.url = "github:nix-community/disko";
+    disko.inputs.nixpkgs.follows = "nixpkgs";
 
     nix-flatpak.url = "github:gmodena/nix-flatpak";
 

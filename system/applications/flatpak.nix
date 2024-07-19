@@ -7,7 +7,7 @@
     uninstallUnmanaged = false;
 
     remotes = lib.mkOptionDefault [{
-      name = "flathub-beta";
+      name = "flathub";
       location = "https://flathub.org/beta-repo/flathub-beta.flatpakrepo";
     }];
 

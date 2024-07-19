@@ -42,18 +42,18 @@
     kernelModules = [ "i2c-dev" "i2c-piix4" "cpufreq_powersave" ];
     plymouth.enable = true;
     lanzaboote = {
-      enable = true;
+      enable = lib.mkForce false;
       configurationLimit = 6;
       pkiBundle = "/etc/secureboot";
     };
     loader = {
       efi.canTouchEfiVariables = if (systemSettings.bootMode == "uefi") then true else false;
       grub = {
-        enable = lib.mkForce false;
+        enable = lib.mkForce true;
         configurationLimit = 6;
         device = systemSettings.grubDevice;
         efiSupport = if (systemSettings.bootMode == "uefi") then true else false;
-        useOSProber = true;
+        useOSProber = false;
       };
       systemd-boot = {
         enable = lib.mkForce false;
@@ -98,8 +98,6 @@
   # Enable CUPS to print documents.
   services.printing.enable = true;
 
-  # Enable sound.
-  sound.enable = true;
   hardware.pulseaudio.enable = false;
   security.rtkit.enable = true;
   services.pipewire = {

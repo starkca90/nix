@@ -8,6 +8,7 @@
     [
       (modulesPath + "/installer/scan/not-detected.nix")
       (nixos-hardware + "/framework/16-inch/7040-amd")
+      (import ./luks-btrfs-subvolumes.nix { inherit systemSettings; })
     ];
 
   nixpkgs.hostPlatform = lib.mkDefault systemSettings.system;
@@ -57,7 +58,7 @@
       # "vfio_pci"
       # "vfio"
       # "vfio_iommu_type1"
-      "kvmfr"
+      # "kvmfr"
     ];
 
     kernelParams = [
@@ -110,40 +111,5 @@
   # Firmware and microcode
   services.fwupd.enable = true;
 
-  fileSystems."/" =
-    {
-      device = "/dev/disk/by-uuid/3e95bfab-f94f-4ba2-bfbc-16343f0509c2";
-      fsType = "btrfs";
-      options = [ "subvol=root" ];
-    };
-
-  boot.initrd.luks.devices."crypted".device = "/dev/disk/by-uuid/82ff8ec6-cfa4-4c21-94b6-5343dc48f5e3";
-
-  fileSystems."/.swapvol" =
-    {
-      device = "/dev/disk/by-uuid/3e95bfab-f94f-4ba2-bfbc-16343f0509c2";
-      fsType = "btrfs";
-      options = [ "subvol=swap" ];
-    };
-
-  fileSystems."/boot" =
-    {
-      device = "/dev/disk/by-uuid/30A1-2339";
-      fsType = "vfat";
-    };
-
-  fileSystems."/home" =
-    {
-      device = "/dev/disk/by-uuid/3e95bfab-f94f-4ba2-bfbc-16343f0509c2";
-      fsType = "btrfs";
-      options = [ "subvol=home" ];
-    };
-
-  fileSystems."/nix" =
-    {
-      device = "/dev/disk/by-uuid/3e95bfab-f94f-4ba2-bfbc-16343f0509c2";
-      fsType = "btrfs";
-      options = [ "subvol=nix" ];
-    };
   # END TODO
 }
