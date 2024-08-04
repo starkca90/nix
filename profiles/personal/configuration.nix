@@ -2,7 +2,7 @@
 # your system. Help is available in the configuration.nix(5) man page, on
 # https://search.nixos.org/options and in the NixOS manual (`nixos-help`).
 
-{ config, lib, pkgs, pkgs-stable, nixos-hardware, systemSettings, userSettings, modulesPath, ... }:
+{ config, lib, pkgs, pkgs-stable, pkgs-starkca90, nixos-hardware, systemSettings, userSettings, modulesPath, ... }:
 
 {
   imports =
@@ -28,7 +28,8 @@
     ];
 
   # Use the latest linux kernel
-  boot.kernelPackages = pkgs.linuxPackages_latest;
+  boot.kernelPackages = pkgs-starkca90.linuxPackages_latest;
+  # boot.kernelPackages = pkgs.linuxPackages_6_9;
 
   # Apparently doing this in pkgs isn't enough
   nixpkgs.config.allowUnfree = true;

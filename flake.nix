@@ -99,7 +99,7 @@
   inputs = {
     nixpkgs.url = "nixpkgs/nixos-unstable";
     nixpkgs-stable.url = "nixpkgs/nixos-23.11";
-    nixpkgs-starkca90.url = "github:starkca90/nixpkgs/update-kvmfr";
+    nixpkgs-starkca90.url = "github:starkca90/nixpkgs/update-kvmfr-6-10";
 
     disko.url = "github:nix-community/disko";
     disko.inputs.nixpkgs.follows = "nixpkgs";

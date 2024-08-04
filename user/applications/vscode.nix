@@ -9,8 +9,8 @@
       editorconfig.editorconfig
       esbenp.prettier-vscode
       ms-vscode.makefile-tools
-      # github.copilot
-      # ms-vscode-remote.remote-containers
+      github.copilot
+      ms-vscode-remote.remote-containers
 
       # Markdown
       davidanson.vscode-markdownlint
@@ -27,12 +27,12 @@
       hashicorp.hcl
 
     ] ++ pkgs.vscode-utils.extensionsFromVscodeMarketplace [
-      #{
-      #  name = "reflow-markdown";
-      #  publisher = "marvhen";
-      #  version = "2.1.0";
-      #  sha256 = "1y99zry5ivwvw2imr376435q1g911aj4rzkh5x8h83rzlg9lgz2f";
-      #}
+      {
+       name = "reflow-markdown";
+       publisher = "marvhen";
+       version = "2.1.0";
+       sha256 = "1y99zry5ivwvw2imr376435q1g911aj4rzkh5x8h83rzlg9lgz2f";
+      }
 
       {
         name = "markdown-checkbox";
@@ -62,19 +62,19 @@
         sha256 = "0p2iwc52id5616wcvhw7dcnjw190s36fc6vbma8cldncz33ab6wc";
       }
 
-      #{
-      #  name = "vscode-packer-powertools";
-      #  publisher = "sztheory";
-      #  version = "0.3.0";
-      #  sha256 = "09ns4vv1x93rfq085yx90cjvn2fjag7bf2y0cdikn9v6yq8sfxd2";
-      #}
+      {
+       name = "vscode-packer-powertools";
+       publisher = "sztheory";
+       version = "0.3.0";
+       sha256 = "09ns4vv1x93rfq085yx90cjvn2fjag7bf2y0cdikn9v6yq8sfxd2";
+      }
 
-      #{
-      #  name = "opentofu";
-      #  publisher = "gamunu";
-      #  version = "0.2.1";
-      #  sha256 = "1lip09r9618pk8id39yicxjs9blxwrw3vsizp18h1fw66hfxsb1s";
-      #}
+      {
+       name = "opentofu";
+       publisher = "gamunu";
+       version = "0.2.1";
+       sha256 = "1lip09r9618pk8id39yicxjs9blxwrw3vsizp18h1fw66hfxsb1s";
+      }
     ];
 
     userSettings = {
