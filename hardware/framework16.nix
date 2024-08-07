@@ -71,13 +71,14 @@
 
   };
 
+
   hardware = {
     cpu.amd.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
 
     sensor.iio.enable = false;
 
     graphics = {
-      driSupport32Bit = true;
+      enable32Bit = true;
       enable = true;
       extraPackages = with pkgs; [
         amdvlk
@@ -86,7 +87,6 @@
         libvdpau-va-gl
         vaapiVdpau
       ];
-
       extraPackages32 = with pkgs; [
         driversi686Linux.amdvlk
       ];
