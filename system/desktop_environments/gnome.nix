@@ -23,9 +23,9 @@
 
   environment.gnome.excludePackages = (with pkgs; [
     gnome-tour
-  ]) ++ (with pkgs.gnome; [
     epiphany
     geary
+  ]) ++ (with pkgs.gnome; [
     tali
     iagno
     hitori

@@ -76,7 +76,7 @@
 
     sensor.iio.enable = false;
 
-    opengl = {
+    graphics = {
       driSupport32Bit = true;
       enable = true;
       extraPackages = with pkgs; [

@@ -32,7 +32,7 @@
     virtio-win
     pkgs-stable.looking-glass-client
 
-    gnome.zenity
+    zenity
   ];
 
   systemd.tmpfiles.rules = [
