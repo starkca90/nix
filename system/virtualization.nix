@@ -25,9 +25,6 @@
   };
 
   environment.systemPackages = with pkgs; [
-    # QEMU w/ wrapper
-    quickemu
-    quickgui
 
     virtio-win
     pkgs-stable.looking-glass-client
