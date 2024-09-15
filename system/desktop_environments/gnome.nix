@@ -7,7 +7,7 @@
     displayManager.gdm.enable = true;
     desktopManager.gnome = {
       enable = true;
-      extraGSettingsOverridePackages = [ pkgs.gnome.mutter ];
+      extraGSettingsOverridePackages = [ pkgs.mutter ];
       extraGSettingsOverrides = ''
         [org.gnome.mutter]
         experimental-features=['scale-monitor-framebuffer']
@@ -25,7 +25,6 @@
     gnome-tour
     epiphany
     geary
-  ]) ++ (with pkgs.gnome; [
     tali
     iagno
     hitori

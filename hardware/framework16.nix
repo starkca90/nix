@@ -16,7 +16,10 @@
   boot = {
 
     # extraModprobeConfig = "options vfio-pci ids=1002:7480,1002:ab30";
-    extraModulePackages = with config.boot.kernelPackages; [ kvmfr ];
+
+    # Remove as kernenl 6.10 and kvmfr no worky and I don't use kvmfr anyways
+    # https://github.com/NixOS/nixpkgs/pull/331206
+    # extraModulePackages = with config.boot.kernelPackages; [ kvmfr ];
 
     initrd = {
 
