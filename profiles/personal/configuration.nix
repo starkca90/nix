@@ -2,7 +2,7 @@
 # your system. Help is available in the configuration.nix(5) man page, on
 # https://search.nixos.org/options and in the NixOS manual (`nixos-help`).
 
-{ config, lib, pkgs, pkgs-stable, pkgs-starkca90, nixos-hardware, systemSettings, userSettings, modulesPath, ... }:
+{ config, lib, pkgs, pkgs-stable, nixos-hardware, systemSettings, userSettings, modulesPath, ... }:
 
 {
   imports =

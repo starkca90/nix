@@ -532,22 +532,6 @@
         "type": "indirect"
       }
     },
-    "nixpkgs-starkca90": {
-      "locked": {
-        "lastModified": 1726016441,
-        "narHash": "sha256-DTSDC4Rvwk5zzUNSQL0KQMfsqz9SW8AforR3r8/kurA=",
-        "owner": "starkca90",
-        "repo": "nixpkgs",
-        "rev": "efb6f21ad3f3fb60fe1d253cddca046e5ff1105b",
-        "type": "github"
-      },
-      "original": {
-        "owner": "starkca90",
-        "ref": "update-kvmfr-6-10",
-        "repo": "nixpkgs",
-        "type": "github"
-      }
-    },
     "nixpkgs_2": {
       "locked": {
         "lastModified": 1726062873,
@@ -620,7 +604,6 @@
         "nixos-hardware": "nixos-hardware",
         "nixpkgs": "nixpkgs_2",
         "nixpkgs-stable": "nixpkgs-stable_2",
-        "nixpkgs-starkca90": "nixpkgs-starkca90",
         "stylix": "stylix"
       }
     },

@@ -1,7 +1,7 @@
 {
   description = "starkca90's Main Flake";
 
-  outputs = inputs@{ nixpkgs, nixpkgs-stable, nixpkgs-starkca90, disko, nixos-hardware, nix-flatpak, home-manager, lanzaboote, ... }:
+  outputs = inputs@{ nixpkgs, nixpkgs-stable, disko, nixos-hardware, nix-flatpak, home-manager, lanzaboote, ... }:
     let
 
       systemSettings = {
@@ -49,14 +49,6 @@
         };
       };
 
-      pkgs-starkca90 = import nixpkgs-starkca90 {
-        system = systemSettings.system;
-        config = {
-          allowUnfree = true;
-          allowUnfreePredicate = (_: true);
-        };
-      };
-
       lib = nixpkgs.lib;
     in {
       homeConfigurations = {
@@ -68,7 +60,6 @@
           ];
           extraSpecialArgs = {
             inherit pkgs-stable;
-            inherit pkgs-starkca90;
             inherit systemSettings;
             inherit userSettings;
           };
@@ -88,7 +79,6 @@
           specialArgs = {
             inherit nixos-hardware;
             inherit pkgs-stable;
-            inherit pkgs-starkca90;
             inherit systemSettings;
             inherit userSettings;
           };
@@ -99,7 +89,6 @@
   inputs = {
     nixpkgs.url = "nixpkgs/nixos-unstable";
     nixpkgs-stable.url = "nixpkgs/nixos-23.11";
-    nixpkgs-starkca90.url = "github:starkca90/nixpkgs/update-kvmfr-6-10";
 
     disko.url = "github:nix-community/disko";
     disko.inputs.nixpkgs.follows = "nixpkgs";
