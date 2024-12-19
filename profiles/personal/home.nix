@@ -45,7 +45,7 @@
 
     # Home VPN Clients
     openvpn
-    gnome.networkmanager-openvpn
+    networkmanager-openvpn
 
     pciutils
   ]);
